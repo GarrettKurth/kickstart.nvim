@@ -195,6 +195,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<Leader>nf', ":lua require('neogen').generate()<CR>", opts)
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
@@ -245,6 +248,12 @@ require('lazy').setup({
       lang = 'py',
       -- configuration goes here
     },
+  },
+  {
+    'danymat/neogen',
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
   },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
